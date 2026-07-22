@@ -1,0 +1,11 @@
+# Arquivos compilados
+*.class
+out/
+build/
+bin/
+
+# Pastas de IDEs
+.idea/
+.vscode/
+*.iml
+.metadata/
