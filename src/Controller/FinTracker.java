@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Transacao;
 import java.util.ArrayList;
+import java.util.List;
 
 public class FinTracker {
     // Armazena as transações em memória usando ArrayList;
@@ -9,29 +10,24 @@ public class FinTracker {
 
     public void adicionarTransacao(Transacao transacao) {
         transacoes.add(transacao);
-        System.out.println("Transação adicionada com sucesso!");
     }
 
-    public void listarTransacoes() {
-        if (transacoes.isEmpty()) {
-            System.out.println("Nenhuma transação registrada.");
-            return;
-        }
-        for (int i = 0; i < transacoes.size(); i++) {
-            System.out.println((i + 1) + ". " + transacoes.get(i).toString());
-        }
+    // Retorna a lista para a camada de visualização (Main) exibir;
+    public List<Transacao> getTransacoes() {
+        return transacoes;
     }
 
-    public void removerTransacao(int indice) {
+    // Retorna booleano indicando se a remoção foi bem-sucedida;
+    public boolean removerTransacao(int indice) {
         if (indice >= 0 && indice < transacoes.size()) {
             transacoes.remove(indice);
-            System.out.println("Transação removida.");
-        } else {
-            System.out.println("Índice inválido.");
+            return true;
         }
+        return false;
     }
 
-    public void calcularSaldoTotal() {
+    // Retorna o valor numérico do saldo para ser impresso na Main;
+    public double calcularSaldoTotal() {
         double saldo = 0.0;
         for (Transacao t : transacoes) {
             if (t.isEhReceita()) {
@@ -40,6 +36,6 @@ public class FinTracker {
                 saldo -= t.getValor();
             }
         }
-        System.out.println("Saldo Atual: R$ " + String.format("%.2f", saldo));
+        return saldo;
     }
 }
