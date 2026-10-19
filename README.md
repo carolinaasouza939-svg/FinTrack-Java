@@ -64,7 +64,7 @@ Se preferir rodar direto no terminal (Prompt de Comando, PowerShell ou Bash), na
 ```bash
 cd FinTrack-Java/src
 
-javac App/*.java Controller/*.java Model/*.java Exceptions/*.java
+javac App/*.java Controller/FinTracker.java Model/*.java Exceptions/*.java
 
 java App.Main
 ```
