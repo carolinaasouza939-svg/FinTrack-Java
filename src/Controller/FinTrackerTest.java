@@ -14,7 +14,7 @@ public class FinTrackerTest {
 
     @BeforeEach
     public void setUp() {
-        tracker = new FinTracker(); 
+        tracker = new FinTracker();
     }
 
     @Test
@@ -41,3 +41,4 @@ public class FinTrackerTest {
         assertTrue(removido, "A transação deveria ter sido removida");
         assertEquals(0, tracker.getTransacoes().size(), "A lista deve estar vazia após a remoção");
     }
+}
